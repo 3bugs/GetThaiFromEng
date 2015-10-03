@@ -78,7 +78,7 @@ public class WordsTable {
         }
     }
 
-    private class DatabaseHelper extends SQLiteOpenHelper {
+    private static class DatabaseHelper extends SQLiteOpenHelper {
 
         public DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -124,7 +124,7 @@ public class WordsTable {
 
 
 
-            StringBuilder sb = new StringBuilder()
+            final StringBuilder sb = new StringBuilder()
                     .append("INSERT INTO ")
                     .append(TABLE_NAME)
                     .append("\n");
