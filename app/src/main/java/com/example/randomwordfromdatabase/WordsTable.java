@@ -64,7 +64,7 @@ public class WordsTable {
         Cursor cursor = mDatabase.query(
                 TABLE_NAME,
                 new String[]{COL_ENG_WORD},
-                COL_ENG_WORD + "=?",
+                COL_THAI_WORD + "=?",
                 new String[]{thaiWord},
                 null,
                 null,
