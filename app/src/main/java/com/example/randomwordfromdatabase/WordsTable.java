@@ -59,6 +59,25 @@ public class WordsTable {
         }
     }
 
+    // returns English word if exists, otherwise returns Thai word passed in
+    public String getEngWordFromThaiWord(String thaiWord) {
+        Cursor cursor = mDatabase.query(
+                TABLE_NAME,
+                new String[]{COL_ENG_WORD},
+                COL_ENG_WORD + "=?",
+                new String[]{thaiWord},
+                null,
+                null,
+                null
+        );
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
+            return cursor.getString(cursor.getColumnIndex(COL_ENG_WORD));
+        } else {
+            return thaiWord;
+        }
+    }
+
     private class DatabaseHelper extends SQLiteOpenHelper {
 
         public DatabaseHelper(Context context) {
